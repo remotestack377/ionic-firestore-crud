@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Todo List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let task of Tasks" lines="full">
+      <ion-label>
+        <strong>{{task.title}}</strong>
+        <p>{{task.description}}</p>
+      </ion-label>
+
+      <div item-end>
+        <button [routerLink]="['/update-todo/', task.id]">
+          <ion-icon name="create" style="zoom:1.5"></ion-icon>
+        </button>
+        <button (click)="remove(task.id)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
